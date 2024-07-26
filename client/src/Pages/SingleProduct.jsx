@@ -11,25 +11,28 @@ import { calcSellPrice, formatPriceIntl } from "../utils/helper"
 import useGetSingleProduct from "../hooks/product/useGetSingleProduct"
 
 const SingleProduct = () => {
-  const { id } = useParams()
+  const { id } = useParams() // getting Product Id from Params
 
   const [product, setProduct] = useState({})
   const [mImage, setMImage] = useState("")
   const [quantity, setQuantity] = useState(1)
 
-  const { loading, getSingleProduct } = useGetSingleProduct()
-  const { loading: addToCartLoading, AddToCart } = useAddToCart()
+  const { loading, getSingleProduct } = useGetSingleProduct() // Custom Hook for getting single Product using API
+  const { loading: addToCartLoading, AddToCart } = useAddToCart() // Custom Hook for add Product to Cart
 
+  // Handling Add to Cart
   const addToCart = () => {
     AddToCart(product._id, quantity)
   }
 
+  // getting Product by ID on Load
   const getProduct = async () => {
     const p = await getSingleProduct(id)
     setMImage(p.imgs[0])
     setProduct(p)
   }
 
+  // Handling Image Change on Click
   const handleOnClick = (src) => {
     setMImage(src)
   }

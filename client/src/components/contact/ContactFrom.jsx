@@ -7,11 +7,9 @@ import Loader from "../Loader"
 import useSendMessage from "../../hooks/massage/useSendMessage"
 
 const ContactFrom = () => {
-  // Getting user information from redux Store
-  const { userInfo } = useSelector((state) => state.auth)
+  const { userInfo } = useSelector((state) => state.auth) // Getting user information from redux Store
 
-  // Custom Hook for send Message
-  const { loading, sendMessage } = useSendMessage()
+  const { loading, sendMessage } = useSendMessage() // Custom Hook for send Message
 
   const [message, setMessage] = useState({
     fullName: "",

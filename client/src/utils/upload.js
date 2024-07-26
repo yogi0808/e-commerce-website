@@ -8,6 +8,7 @@ const upload = async (file, path) => {
 
     const date = new Date()
 
+    // Creating Storage Reference 
     const storageRef = ref(storage, `${path ? path : "images/"}` + (date + file.name));
     const uploadTask = uploadBytesResumable(storageRef, file);
 

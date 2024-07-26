@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
 import toast from "react-hot-toast"
-import { addToCart, modifyQuantity } from "../../store/features/cart/cartSlice"
+import { useDispatch } from "react-redux"
+
+// Files
+import { modifyQuantity } from "../../store/features/cart/cartSlice"
 
 const useChangeQuantity = () => {
 
@@ -13,12 +15,11 @@ const useChangeQuantity = () => {
 
         try {
 
-            if (!itemId || !quantity) return
+            if (!itemId || !quantity) return // Checking for valid parameters
 
             if (quantity <= 0) {
                 return toast.error("quantity must be Bigger then 0.")
             }
-
 
             const res = await fetch(`/api/cart/${itemId}`, {
                 method: "POST",

@@ -16,8 +16,8 @@ import { setDeliveryMethod } from "../store/features/cart/cartSlice"
 const Cart = () => {
   const dispatch = useDispatch()
 
-  const { products, delivery } = useSelector((state) => state.cart)
-  const { getCartProducts } = useGetCartProducts()
+  const { products, delivery } = useSelector((state) => state.cart) // Getting cart Products and Delivery from redux store
+  const { getCartProducts } = useGetCartProducts() // Custom Hook for Get cart Products form API
 
   const navigate = useNavigate()
 
@@ -59,6 +59,7 @@ const Cart = () => {
     return subTotal
   }
 
+  // Checking Product for checkout and redirecting
   const checkout = () => {
     if (products.length <= 0)
       return toast.error("Don't have any Products to checkout.")

@@ -11,14 +11,11 @@ import useGetAllCategories from "../../hooks/category/useGetAllCategories"
 const MenageCategory = () => {
   const [category, setCategory] = useState("")
 
-  // Custom Hook for Create new Category
-  const { loading, createCategory } = useCreateCategory()
+  const { loading, createCategory } = useCreateCategory() // Custom Hook for Create new Category
 
-  // Custom Hook for Get all Categories from API
-  const { getAllCategories } = useGetAllCategories()
+  const { getAllCategories } = useGetAllCategories() // Custom Hook for Get all Categories from API
 
-  // Getting categories from redux Store
-  const categories = useSelector((state) => state.category.categories)
+  const categories = useSelector((state) => state.category.categories) // Getting categories from redux Store
 
   // Handling Form Submit
   const handleSubmit = async (e) => {

@@ -12,9 +12,11 @@ const useRegister = () => {
 
     const Register = async (userData) => {
         setLoading(true)
-        const isValid = validateData(userData)
-        if (!isValid) return
         try {
+            const isValid = validateData(userData) // Validating user Data 
+
+            if (!isValid) return
+
             const res = await fetch(`/api/auth/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -47,6 +49,7 @@ const useRegister = () => {
     return { loading, Register }
 }
 
+// Validator Function for User Data
 const validateData = (data) => {
     const { fullName, username, email, password, confirmPassword } = data
 

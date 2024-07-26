@@ -13,7 +13,7 @@ const useRemoveFromCart = () => {
         setLoading(true)
         try {
 
-            if (!itemId) return
+            if (!itemId) return // Checking for valid parameters
 
             const res = await fetch(`/api/cart/${itemId}`, {
                 method: "DELETE"

@@ -7,8 +7,7 @@ import Loader from "../../components/Loader"
 import useLogin from "../../hooks/auth/useLogin"
 
 const Login = () => {
-  // Custom Hook for Login
-  const { loading, Login } = useLogin()
+  const { loading, Login } = useLogin() // Custom Hook for Login
 
   // Handling Form Submit
   const handleSubmit = async (e) => {

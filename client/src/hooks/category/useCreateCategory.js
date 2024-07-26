@@ -16,6 +16,7 @@ const useCreateCategory = () => {
         setLoading(true)
         try {
 
+            // Checking for valid parameters
             if (!category) {
                 return toast.error("Fill All the input fids.")
             }

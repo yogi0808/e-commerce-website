@@ -1,6 +1,8 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
 import toast from "react-hot-toast"
+import { useDispatch } from "react-redux"
+
+// Files
 import { addToCart } from "../../store/features/cart/cartSlice"
 
 const useAddToCart = () => {
@@ -13,7 +15,7 @@ const useAddToCart = () => {
 
         try {
 
-            if (!productId) return
+            if (!productId) return // Checking for valid parameters
 
             const res = await fetch(`/api/cart`, {
                 method: "POST",

@@ -1,19 +1,23 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { sortProduct } from "../store/features/product/productSlice"
+
+// Files
 import useGetAllProducts from "../hooks/product/useGetAllProducts"
+import { sortProduct } from "../store/features/product/productSlice"
 
 const SortProducts = () => {
-  const { categories } = useSelector((state) => state.category)
+  const { categories } = useSelector((state) => state.category) // getting all Category form redux store
 
-  const { getAllProducts } = useGetAllProducts()
+  const { getAllProducts } = useGetAllProducts() // Custom Hook for get all Products using API
 
   const dispatch = useDispatch()
 
+  // Handling change Category
   const onCategoryChange = (e) => {
     getAllProducts(e.target.value === "all" ? "" : e.target.value)
   }
 
+  // Handling Sorting
   const onSortChange = (e) => {
     dispatch(sortProduct(e.target.value))
   }

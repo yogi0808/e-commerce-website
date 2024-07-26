@@ -17,6 +17,8 @@ const useCreateProduct = () => {
         setLoading(true)
         try {
 
+            if (!e) return // Checking for valid parameters
+
             const formData = new FormData(e.target)
 
             const images = e.target.imgs.files
@@ -27,7 +29,7 @@ const useCreateProduct = () => {
 
             const isDataValid = validateData(productData, images)
 
-            if (!isDataValid) return
+            if (!isDataValid) return // validating Product Data
 
             const imgs = [...images]
 
@@ -35,6 +37,7 @@ const useCreateProduct = () => {
 
             let i = 0
 
+            // Looping thru all Images and Uploading to fireStore 
             for (i = 0; i <= imgs.length - 1; i++) {
                 const url = await upload(imgs[i])
                 imagesUrls.push(url)
@@ -68,6 +71,7 @@ const useCreateProduct = () => {
     return { loading, createProduct }
 }
 
+// Validator Function for product Data
 const validateData = (productData, images) => {
     const { name, price, category, desc, discount } = productData
 

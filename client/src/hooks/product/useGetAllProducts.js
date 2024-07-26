@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import toast from "react-hot-toast"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 // Files
 import { setProducts } from '../../store/features/product/productSlice'
@@ -9,10 +9,7 @@ const useGetAllProducts = () => {
 
   const [loading, setLoading] = useState(false)
 
-  const { page } = useSelector(state => state.product)
-
   const dispatch = useDispatch()
-
 
   const getAllProducts = async (category) => {
     setLoading(true)

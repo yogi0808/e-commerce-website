@@ -9,8 +9,8 @@ import Footer from "./components/Footer"
 import useGetCartProducts from "./hooks/cart/useGetCartProducts"
 
 const App = () => {
-  const { getCartProducts } = useGetCartProducts()
-  const { userInfo } = useSelector((state) => state.auth)
+  const { getCartProducts } = useGetCartProducts() // Custom Hook for getting Cart Products
+  const { userInfo } = useSelector((state) => state.auth) // getting User Data from redux store
 
   useEffect(() => {
     getCartProducts()

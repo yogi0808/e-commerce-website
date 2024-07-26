@@ -1,24 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Outlet } from "react-router"
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 
 // Files
-import useLogout from "../../hooks/auth/useLogout"
 import Loader from "../../components/Loader"
 import CameraSvg from "../../svgs/CameraSvg"
+import useLogout from "../../hooks/auth/useLogout"
 import useChangeProfileImg from "../../hooks/profile/useChangeProfileImg"
-import { useEffect } from "react"
 
 const Profile = () => {
-  // Custom Hook for Logout user
-  const { loading, Logout } = useLogout()
+  const { loading, Logout } = useLogout() // Custom Hook for Logout user
 
-  // Getting user Data from redux Store
-  const { userInfo } = useSelector((state) => state.auth)
+  const { userInfo } = useSelector((state) => state.auth) // Getting user Data from redux Store
 
   const { loading: loadingImg, changeProfileImg } = useChangeProfileImg() // Custom Hook for change Profile Pic
 
+  // Handling Profile Image Change
   const handelProfilePicChange = (e) => {
     changeProfileImg(e.target.files[0])
   }

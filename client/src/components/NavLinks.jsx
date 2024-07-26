@@ -8,15 +8,13 @@ import MenuSvg from "../svgs/MenuSvg"
 import { navLinks } from "../constants"
 
 const NavLinks = () => {
-  // Getting user Data from redux Store
-  const userData = useSelector((state) => state.auth.userInfo)
+  const userData = useSelector((state) => state.auth.userInfo) // Getting user Data from redux Store
 
-  // Getting cart Products from redux Store
-  const { products } = useSelector((state) => state.cart)
+  const { products } = useSelector((state) => state.cart) // Getting cart Products from redux Store
 
   const [cartCount, setCartCount] = useState(
     products.reduce((ini, p) => ini + (p.quantity ? p.quantity : 1), 0)
-  )
+  ) // Calculating Cart Products
 
   const [isNavOpen, setIsNavOpen] = useState(false)
 

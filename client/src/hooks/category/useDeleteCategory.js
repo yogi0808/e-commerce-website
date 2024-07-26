@@ -8,13 +8,13 @@ import { removeCategory } from "../../store/features/category/categorySlice"
 const useDeleteCategory = () => {
 
     const [loading, setLoading] = useState(false)
-
-
     const dispatch = useDispatch()
 
     const deleteCategory = async (categoryId) => {
         setLoading(true)
         try {
+
+            if (!categoryId) return // Checking for valid parameters
 
             const res = await fetch(`/api/categories/${categoryId}`, {
                 method: "DELETE",

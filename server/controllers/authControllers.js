@@ -16,7 +16,6 @@ export const register = async (req, res) => {
         return res.status(400).json({ message: "Password do not match." })
     }
 
-
     try {
 
         const user = await User.findOne({ email }).select("-password")

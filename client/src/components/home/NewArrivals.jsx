@@ -8,11 +8,10 @@ import ProductCard from "../ProductCard"
 import useGetAllProducts from "../../hooks/product/useGetAllProducts"
 
 const NewArrivals = () => {
-  // Getting Products list from redux store
-  const { products } = useSelector((state) => state.product)
+  const { products } = useSelector((state) => state.product) // Getting Products list from redux store
 
   // Custom Hook for get All Products from API
-  const { loading, getAllProducts } = useGetAllProducts()
+  const { loading, getAllProducts } = useGetAllProducts() // Custom Hook for get All Products from API
 
   useEffect(() => {
     getAllProducts()

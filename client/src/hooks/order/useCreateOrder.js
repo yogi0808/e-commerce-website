@@ -1,16 +1,19 @@
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
-import { setCart } from "../../store/features/cart/cartSlice"
+
+// Files
 import useRemoveFromCart from "../cart/useRemoveFromCart"
+import { setCart } from "../../store/features/cart/cartSlice"
 
 const useCreateOrder = () => {
 
     const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
 
-    const { products } = useSelector(state => state.cart)
-    const { removeFromCart } = useRemoveFromCart()
+    const { products } = useSelector(state => state.cart) // getting Products form redux store
+
+    const { removeFromCart } = useRemoveFromCart() // Custom Hook for remove Product from Cart
 
     const createOrder = async (orderData) => {
         setLoading(true)
@@ -25,7 +28,7 @@ const useCreateOrder = () => {
                 })
             })
 
-            const isDataValid = validateData({ ...orderData, products: cartItems })
+            const isDataValid = validateData({ ...orderData, products: cartItems }) // validating order Data 
 
             if (!isDataValid) {
                 return toast.error("Provide valid Inputs.")
@@ -62,6 +65,7 @@ const useCreateOrder = () => {
     return { loading, createOrder }
 }
 
+// Validator Function for Order Data
 const validateData = (data) => {
     const { firstName, lastName, phoneNumber, email, street, country, city, state, zip, paymentMethod, cardNumber, cardExpiry, cardCVC, upi, totalPrice, products } = data
 

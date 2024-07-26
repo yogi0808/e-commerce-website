@@ -8,9 +8,9 @@ const useSendMessage = () => {
     const sendMessage = async (messageData) => {
         setLoading(true)
         try {
-            const isDataValid = validateData(messageData)
+            const isDataValid = validateData(messageData) // Validating message Data
 
-            if (!isDataValid) return
+            if (!isDataValid) return // Checking for valid parameters
 
             const res = await fetch("/api/message", {
                 method: "POST",
@@ -36,6 +36,7 @@ const useSendMessage = () => {
     return { loading, sendMessage }
 }
 
+// Validator Function for message data
 const validateData = (data) => {
     const { fullName, email, message } = data
 

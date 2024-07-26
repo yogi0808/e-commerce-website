@@ -1,12 +1,14 @@
 import React from "react"
+import { Navigate } from "react-router"
 import { useSelector } from "react-redux"
-import CartProductCard from "../components/Cart/CartProductCard"
+
+// Files
 import { formatPriceIntl } from "../utils/helper"
 import CheckoutForm from "../components/CheckoutForm"
-import { Navigate } from "react-router"
+import CartProductCard from "../components/Cart/CartProductCard"
 
 const Checkout = () => {
-  const { products, delivery } = useSelector((state) => state.cart)
+  const { products, delivery } = useSelector((state) => state.cart) // Getting cart Products and Delivery from redux store
 
   // Calculating Total Price for Checkout
   const calcSubTotal = () => {
@@ -41,6 +43,7 @@ const Checkout = () => {
     return subTotal
   }
 
+  // Checking Product length
   return products.length <= 0 ? (
     <Navigate
       to="/"

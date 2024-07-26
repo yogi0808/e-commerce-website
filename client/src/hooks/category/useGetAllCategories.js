@@ -9,8 +9,7 @@ const useGetAllCategories = () => {
 
     const [loading, setLoading] = useState(false)
 
-    // Getting categories from redux store
-    const categories = useSelector((state) => state.category.categories)
+    const categories = useSelector((state) => state.category.categories) // Getting categories from redux store
 
     const dispatch = useDispatch()
 

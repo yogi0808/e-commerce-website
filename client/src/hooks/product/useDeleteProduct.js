@@ -16,6 +16,8 @@ const useDeleteProduct = () => {
 
         try {
 
+            if (!productId) return // Checking for valid parameters
+
             const res = await fetch(`/api/product/${productId}`, {
                 method: "DELETE"
             })

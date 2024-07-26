@@ -23,20 +23,6 @@ export function calcSellPrice(price, dis) {
     return formatPriceIntl(sellPrice)
 }
 
-export function debounce(cb, delay = 1000) {
-    let timeout
-
-    return (...args) => {
-        if (timeout) {
-            clearTimeout(timeout)
-            return
-        }
-        timeout = setTimeout(() => {
-            cb(...args)
-        }, delay)
-    }
-}
-
 // Formatting Date
 export function formatDate(text) {
     const date = new Date(text)

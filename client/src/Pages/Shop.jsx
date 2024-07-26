@@ -22,6 +22,7 @@ const Shop = () => {
 
   const { getAllCategories } = useGetAllCategories() // Custom Hook for get Categories from API
 
+  // Handling show more button for Get Products
   const handleShowMore = () => {
     getProducts()
   }

@@ -14,7 +14,7 @@ const useLogin = () => {
     const Login = async (userData) => {
         setLoading(true)
         try {
-            const isValid = validateData(userData)
+            const isValid = validateData(userData) // validating user data
 
             if (!isValid) return
 
@@ -36,7 +36,7 @@ const useLogin = () => {
 
             dispatch(login(data.user))
 
-            localStorage.setItem("userData", JSON.stringify(data.user))
+            localStorage.setItem("userData", JSON.stringify(data.user)) // storing user Data in local Storage
 
             toast.success(data.message)
 
@@ -51,6 +51,7 @@ const useLogin = () => {
 
 }
 
+// Validator Function for user data
 const validateData = (data) => {
     const { email, password } = data
 

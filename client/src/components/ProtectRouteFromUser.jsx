@@ -3,8 +3,7 @@ import { useSelector } from "react-redux"
 import { Navigate, Outlet } from "react-router"
 
 const ProtectRouteFromUser = () => {
-  // Getting user Data from redux Store
-  const userData = useSelector((state) => state.auth.userInfo)
+  const userData = useSelector((state) => state.auth.userInfo) // Getting user Data from redux Store
 
   // Condition for user. is Logged in Or not
   return !userData ? (

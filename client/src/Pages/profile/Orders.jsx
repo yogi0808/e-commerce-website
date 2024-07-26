@@ -1,18 +1,20 @@
-import React from "react"
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
-import useGetUserOrders from "../../hooks/order/useGetUserOrders"
+
+// Files
+import Btn from "../../components/Btn"
 import Loader from "../../components/Loader"
 import { formatDate } from "../../utils/helper"
-import Btn from "../../components/Btn"
 import useUpdateStatus from "../../hooks/order/useUpdateStatus"
+import useGetUserOrders from "../../hooks/order/useGetUserOrders"
 
 const Orders = () => {
-  const { orders } = useSelector((state) => state.order)
+  const { orders } = useSelector((state) => state.order) // getting orders form react store
 
-  const { loading, getUserOrders } = useGetUserOrders()
-  const { loading: cancelLoading, updateStatus } = useUpdateStatus()
+  const { loading, getUserOrders } = useGetUserOrders() // Custom Hook for get User Orders
+  const { loading: cancelLoading, updateStatus } = useUpdateStatus() // Custom Hook for Update Order Status
 
+  // Handling confirmation
   const cancelOrder = (id) => {
     const text = "Are You sure You want to Cancel The Order?"
 

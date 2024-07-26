@@ -1,25 +1,26 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
-import useGetAllOrders from "../../hooks/order/useGetAllOrders"
-import { useEffect } from "react"
+
+// Files
 import { formatDate } from "../../utils/helper"
+import useGetAllOrders from "../../hooks/order/useGetAllOrders"
 import useUpdateStatus from "../../hooks/order/useUpdateStatus"
-import Loader from "../../components/Loader"
 
 const MenageOrders = () => {
-  const { allOrders } = useSelector((state) => state.order)
+  const { allOrders } = useSelector((state) => state.order) // getting all Orders form redux store
 
-  const { loading, getAllOrders } = useGetAllOrders()
-  const { updateStatus } = useUpdateStatus()
+  const { getAllOrders } = useGetAllOrders() // Custom Hook for get All Orders
+  const { loading, updateStatus } = useUpdateStatus() // Custom Hook for Update Order Status
 
+  // Calculating Product Count in Order
   const calculateItems = (products) => {
     return products.reduce((ini, p) => ini + p.quantity, 0)
   }
 
   useEffect(() => {
     getAllOrders()
-  }, [updateStatus])
+  }, [loading])
   return (
     <main className="flex-1 w-full flex-center flex-col md:px-3">
       <div className=" overflow-auto w-full">

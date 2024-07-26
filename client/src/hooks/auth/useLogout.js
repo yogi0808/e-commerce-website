@@ -24,7 +24,7 @@ const useLogout = () => {
 
             dispatch(logout())
 
-            localStorage.clear()
+            localStorage.clear() // clearing local Storage
 
             toast.success(data.message)
 

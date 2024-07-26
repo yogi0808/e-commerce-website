@@ -28,6 +28,8 @@ const productSlice = createSlice({
             state.page = state.page + 1
         },
         sortProduct: (state, action) => {
+
+            // Switch case for sort Products
             switch (action.payload) {
                 case "aToz":
                     state.products.sort((a, b) => {

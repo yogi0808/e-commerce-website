@@ -3,13 +3,14 @@ import { Link } from "react-router-dom"
 
 // Files
 import Btn from "./Btn"
-import { calcSellPrice, formatPriceIntl } from "../utils/helper"
 import Loader from "../components/Loader"
 import useAddToCart from "../hooks/cart/useAddToCart"
+import { calcSellPrice, formatPriceIntl } from "../utils/helper"
 
 const ProductCard = ({ product }) => {
-  const { loading, AddToCart } = useAddToCart()
+  const { loading, AddToCart } = useAddToCart() // Custom Hook for add Product to Cart
 
+  // Adding product to Cart
   const addToCart = () => {
     AddToCart(product._id)
   }

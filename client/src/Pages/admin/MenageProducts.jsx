@@ -4,20 +4,19 @@ import { useSelector } from "react-redux"
 // Files
 import Btn from "../../components/Btn"
 import Loader from "../../components/Loader"
+import useGetProducts from "../../hooks/product/useGetProducts"
 import AddProductForm from "../../components/Admin/AddProductForm"
 import useGetAllProducts from "../../hooks/product/useGetAllProducts"
 import AdminProductCard from "../../components/Admin/AdminProductCard"
-import useGetProducts from "../../hooks/product/useGetProducts"
 
 const MenageProducts = () => {
-  // Getting Products From redux Store
-  const { products } = useSelector((state) => state.product)
+  const { products } = useSelector((state) => state.product) // Getting Products From redux Store
 
-  // Custom Hook for get All Products using API
-  const { loading, getAllProducts } = useGetAllProducts()
+  const { loading, getAllProducts } = useGetAllProducts() // Custom Hook for get All Products using API
 
   const { loading: loadingBtn, getProducts } = useGetProducts() // Custom Hook for get Products by Page from API
 
+  // Handling show More Button for get more Products
   const handleShowMore = () => {
     getProducts()
   }

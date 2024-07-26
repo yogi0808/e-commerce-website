@@ -9,12 +9,13 @@ import useCreateOrder from "../hooks/order/useCreateOrder"
 const CheckoutForm = ({ totalPrice }) => {
   const [payment, setPayment] = useState("card")
 
-  const { loading, createOrder } = useCreateOrder()
+  const { loading, createOrder } = useCreateOrder() // Custom Hook for create an Order
 
   const onSelect = (e) => {
     setPayment(e.target.value)
   }
 
+  // handling checkout form submit
   const handleSubmit = (e) => {
     e.preventDefault()
 

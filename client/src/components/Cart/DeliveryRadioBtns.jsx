@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 const DeliveryRadioBtns = ({ onSelect }) => {
-  const { delivery } = useSelector((state) => state.cart)
+  const { delivery } = useSelector((state) => state.cart) // getting selected delivery option from redux store
 
   return (
     <div className="flex flex-col gap-3 ">

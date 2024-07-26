@@ -7,8 +7,7 @@ import Loader from "../../components/Loader"
 import useRegister from "../../hooks/auth/useRegister"
 
 const Register = () => {
-  // Custom Hook for Register new User
-  const { loading, Register } = useRegister()
+  const { loading, Register } = useRegister() // Custom Hook for Register new User
 
   // Handling Form Submit
   const handleSubmit = async (e) => {

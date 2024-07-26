@@ -9,7 +9,7 @@ const useGetSingleProduct = () => {
         setLoading(true)
 
         try {
-
+            // Checking for valid parameters
             if (!id) {
                 return toast.error("Provide Valid Inputs.")
             }

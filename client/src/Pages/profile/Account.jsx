@@ -2,8 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 
 const Account = () => {
-  // Getting User Data from redux Store
-  const { userInfo } = useSelector((state) => state.auth)
+  const { userInfo } = useSelector((state) => state.auth) // Getting User Data from redux Store
 
   return (
     <div className="flex flex-col gap-10 items-center">
